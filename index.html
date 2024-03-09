@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Sitio Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/1f296e140d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <header>
+        <div class="logo">
+            <img src="icono_final.png" alt="Logo">
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars" id="menu-icon"></i>
+        </div>
+        <div class="location">
+            <p id="location-text">Ubicación del Cliente</p>
+            <button id="change-location-btn" onclick="showChangeLocationPopup()">Cambiar Ubicación</button>
+        </div>
+        <div class="header-buttons">
+            <button id="login-btn" class="fa-solid fa-user">&nbsp Ingresar</button>
+            <button onclick="contactWhatsApp()" class="fa-brands fa-whatsapp">&nbsp Contacto</button>
+        </div>
+    </header>
+    <!-- Div emergente para cambiar la ubicación -->
+    <div id="change-location-popup" class="popup">
+        <h2>¿Dónde quieres pedir hoy?</h2>
+        <div class="search-location">
+            <i class="fas fa-map-marker-alt"></i> <!-- Icono de ubicación de Font Awesome -->
+            <input type="text" id="new-location-input" placeholder="Ingrese su nueva ubicación">
+        </div>
+        <div class="button-container">
+            <button onclick="changeLocation()">Aceptar</button>
+            <button onclick="hideChangeLocationPopup()">Cancelar</button>
+        </div>
+    </div>
+    <!-- Div para carrousel -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="slide"><img src="promocion1.png" alt="Promoción 1"></div>
+            <div class="slide"><img src="promocion2.png" alt="Promoción 2"></div>
+            <div class="slide"><img src="Promocion3.png" alt="Promoción 3"></div>
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
+    <!-- cuerpo -->
+    <div class="main-content">
+        <div class="upper-section">
+            <div class="secciones">
+                <a href="">Promociones</a>
+                <a href="">Pizzas familiares</a>
+                <a href="">Acompañamientos</a>
+                <a href="">Postres</a>
+                <a href="">Bebidas</a>
+            </div>
+
+
+
+            <div class="space-card">
+                <div class="card">
+                    <img src="mechada.jpg" alt="PIZZA FAMILIAR PEPPERONI + BEBIDA 1.5 LT">
+                    <h3>PIZZA FAMILIAR PEPPERONI + BEBIDA 1.5 LT</h3>
+                    <p>Salsa de tomates, queso mozzarelLa y pepperoni.</p>
+                    <p class="price">$12.390</p> <!-- Precio -->
+                    <button class="boton-card">Agregar al carrito</button> <!-- Botón -->
+                </div>
+                <div class="card">
+                    <img src="mechada.jpg" alt="PIZZA FAMILIAR PEPPERONI + BEBIDA 1.5 LT">
+                    <h3>PIZZA FAMILIAR PEPPERONI + BEBIDA 1.5 LT</h3>
+                    <p>Salsa de tomates, queso mozzarelLa y pepperoni.</p>
+                    <p class="price">$12.390</p> <!-- Precio -->
+                    <button class="boton-card">Agregar al carrito</button> <!-- Botón -->
+                </div>
+                <div class="card">
+                    <img src="mechada.jpg" alt="PIZZA FAMILIAR PEPPERONI + BEBIDA 1.5 LT">
+                    <h3>PIZZA FAMILIAR PEPPERONI + BEBIDA 1.5 LT</h3>
+                    <p>Salsa de tomates, queso mozzarelLa y pepperoni.</p>
+                    <p class="price">$12.390</p> <!-- Precio -->
+                    <button class="boton-card">Agregar al carrito</button> <!-- Botón -->
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    <!-- carrito -->
+        <div class="cart">
+            <div class="tu-orden">
+                <h2>Tu orden</h2>
+                <hr>
+            </div>
+            <img src="foto de tomates.jpg" alt="">
+            <p>Parece que aun no hay nada en tu orden</p>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <!-- Aquí puedes agregar el contenido del footer -->
+    </footer>
+
+    <script src="script.js"></script>
+</div>
+</body>
+</html>
