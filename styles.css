@@ -72,7 +72,7 @@ button:hover {
     color: #2d5d2a; /* Cambia el color de fondo a verde al pasar sobre el botón */
 }
 .container {
-    max-width: 80%; /* Establece el ancho máximo del contenedor al 80% de la pantalla */
+    max-width: 100%; /* Establece el ancho máximo del contenedor al 80% de la pantalla */
     margin: 0 auto; /* Centra el contenedor horizontalmente */
 }
 
@@ -264,12 +264,13 @@ img {
 .main-content {
     display: flex;
     padding-top: 20px;
+
 }
 
 .upper-section {
 width: 70%;
 flex-direction: column; /* Apila los elementos verticalmente */
-padding-right: 10px;
+
 }
 
 .secciones {
@@ -296,10 +297,24 @@ padding-right: 10px;
 }
 .cart {
     width: 30%;
+    height: 100vh; /* Establece la altura al 100% del alto de la pantalla */
     background-color: #fff;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); /* Sombra con desplazamiento horizontal 0px, desplazamiento vertical 0px, difuminado 10px, tamaño de extensión 0px, color de sombra negro con una opacidad del 50% */
     border-radius: 5px;
+
 }
+
+.cart.fixed {
+    position: fixed;
+    height: 100%;
+    width: 30%; /* Establece el ancho del carrito */
+    overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura */
+    z-index: 999; /* Asegura que el carrito esté por encima de otros elementos */
+    right: 0;
+    top: 0;
+}
+
+
 .tu-orden {
     text-align: center;
     text-transform: uppercase;
@@ -317,11 +332,12 @@ padding-right: 10px;
 /* Estilos para el card */
 .space-card {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column; /* Organiza los elementos en columnas */
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); /* Sombra con desplazamiento horizontal 0px, desplazamiento vertical 0px, difuminado 10px, tamaño de extensión 0px, color de sombra negro con una opacidad del 50% */
     padding: 10px 20px 20px 20px;
+    margin-bottom: 20px;
 }
 .card{
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); /* Sombra con desplazamiento horizontal 0px, desplazamiento vertical 0px, difuminado 10px, tamaño de extensión 0px, color de sombra negro con una opacidad del 50% */
@@ -330,6 +346,10 @@ padding-right: 10px;
     text-align: center;
     max-width: 300px;
     border-radius:5px;
+    width: calc(33.333% - 10px); /* Un tercio del ancho del contenedor con un margen de 5px a cada lado */
+    max-width: calc(33.333% - 10px); /* Limita el ancho máximo de la tarjeta */
+    margin: 5px; /* Margen de 5px entre las tarjetas */
+    box-sizing: border-box; /* Incluye el margen en el cálculo del ancho */
 }
 .card h2{
     text-align: center;
@@ -352,3 +372,100 @@ padding-right: 10px;
     
 }
 
+.titulo-section{
+    text-align: center; /* Centra el texto */
+}
+.card-section{
+    display: flex; /* Utiliza flexbox para los elementos hijos */
+    justify-content: center; /* Centra horizontalmente las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en filas */
+    justify-content: flex-start; /* Alinea las tarjetas al inicio del contenedor */
+    margin: 0 -5px; /* Para compensar el margen negativo */
+}
+.titulo-section h2 {
+    letter-spacing: 10px; /* Espaciado entre letras de 5px */
+}
+
+/* Estilo para los elementos del carrito */
+#cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#cart li {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%; /* Modifica el ancho del elemento del carrito según tu preferencia */
+    box-sizing: border-box;
+    list-style-type: none;
+    text-align: center;
+    position: relative; /* Agrega posición relativa para que la posición absoluta de la "x" funcione correctamente */
+}
+
+.remove-button {
+    background-color: #fff;
+    color: #ba151a;
+    border: 1px solid #ba151a;
+    border-radius: 50%; /* Hace que el botón sea un círculo perfecto */
+    width: 10px; /* Ancho del botón */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse sobre el botón */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Agrega una transición suave al cambiar los estilos */
+    position: absolute; /* Posición absoluta para colocar la "x" */
+    top: 5px; /* Ajusta la distancia desde la parte superior */
+    right: 5px; /* Ajusta la distancia desde el lado derecho */
+}
+
+.remove-button:hover {
+    background-color: #ba151a;
+    color: #fff;
+    border-color: #fff;
+}
+
+
+#cart-summary {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+#pay-button {
+    background-color: #2d5d2a;
+    color:#fff;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#pay-button:hover {
+    background-color: #fff;
+    color: #2d5d2a;
+    border: 1px solid #2d5d2a;
+}
+#cart-items {
+    width: 100%; /* Hacer que la lista ocupe todo el ancho del contenedor */
+    padding: 0; /* Eliminar el relleno */
+    margin: 0; /* Eliminar el margen */
+}
+
+#cart-items li {
+    width: 100%; /* Hacer que cada elemento de la lista ocupe todo el ancho del contenedor */
+    padding: 0; /* Eliminar el relleno */
+    margin: 0; /* Eliminar el margen */
+    margin-bottom: 10px;
+}
+#total-price{
+    margin-top: 20px;
+}
